@@ -964,11 +964,10 @@ body {
     line-height: 1.6;
     margin: 0;
     font-size: 0.9rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Changed properties below to show full text */
+    display: block;
+    height: auto;
+    overflow: visible;
 }
 
 .project-tech {
