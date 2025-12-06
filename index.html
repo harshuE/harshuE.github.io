@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harishalinee Elangovan | Data Science Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-background"></div>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg width="45" height="45" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="40" height="40" rx="10" fill="url(#logoGradient)"/>
+                        <path d="M12 20L18 14L28 24L22 30L12 20Z" fill="white" opacity="0.95"/>
+                        <circle cx="20" cy="20" r="3" fill="#60a5fa"/>
+                        <path d="M20 10V20M20 20V30" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <div class="logo-glow"></div>
+                </div>
+                <span class="logo-text">HE</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link"><span>About</span></a></li>
+                <li><a href="#education" class="nav-link"><span>Education</span></a></li>
+                <li><a href="#skills" class="nav-link"><span>Skills</span></a></li>
+                <li><a href="#projects" class="nav-link"><span>Projects</span></a></li>
+                <li><a href="#experience" class="nav-link"><span>Experience</span></a></li>
+                <li><a href="#certifications" class="nav-link"><span>Certifications</span></a></li>
+                <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating AI Bots -->
+    <div class="floating-bots">
+        <div class="ai-bot bot-1">
+            <i class="fas fa-robot"></i>
+            <div class="bot-glow"></div>
+        </div>
+        <div class="ai-bot bot-2">
+            <i class="fas fa-brain"></i>
+            <div class="bot-glow"></div>
+        </div>
+        <div class="ai-bot bot-3">
+            <i class="fas fa-chart-line"></i>
+            <div class="bot-glow"></div>
+        </div>
+        <div class="ai-bot bot-4">
+            <i class="fas fa-microchip"></i>
+            <div class="bot-glow"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image-wrapper">
+                <div class="hero-image-container">
+                    <div class="image-frame-3d">
+                        <img src="profile.jpg" alt="Harishalinee Elangovan" class="hero-image" id="hero-image">
+                        <div class="image-border"></div>
+                        <div class="image-shine"></div>
+                        <div class="data-visualization-bg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-name">Harishalinee Elangovan</h1>
+                <p class="hero-title">Data Science Professional</p>
+                <p class="hero-subtitle">Data Scientist | Machine Learning Engineer | Analytics Specialist</p>
+                <p class="hero-description">Specializing in advanced analytics, predictive modeling, and cloud-based data solutions to drive business intelligence and strategic decision-making.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="cv.pdf" download class="btn btn-cv">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215" target="_blank" class="btn btn-social linkedin-btn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/harshuE" target="_blank" class="btn btn-social github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <!-- Data Science Animation Background -->
+        <div class="data-animation-bg">
+            <canvas id="dataCanvas"></canvas>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">
+                        I am a final-year Data Science undergraduate with a passion for transforming complex data into actionable insights that drive strategic decision-making. With hands-on experience as a Data Analyst Intern and AI Development Intern, I specialize in building end-to-end data solutions—from preprocessing and analysis to machine learning model deployment.
+                    </p>
+                    <p>
+                        My technical expertise encompasses Python, SQL, and R programming languages, along with advanced machine learning frameworks including Scikit-Learn, TensorFlow, and PyTorch. I am proficient in cloud computing platforms (AWS, Azure) and data visualization tools (Power BI), enabling me to deliver comprehensive analytics solutions. I excel in collaborative environments, leveraging my analytical mindset and technical capabilities to address complex business challenges and drive organizational success.
+                    </p>
+                    <p>
+                        Currently pursuing my Bachelor's degree at SLIIT with a 3.25/4.00 CGPA, I am actively seeking opportunities to contribute to innovative data science teams at top-tier companies. My objective is to continue advancing as a data professional while delivering measurable impact through data-driven solutions that optimize business performance and inform strategic initiatives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <p class="institution">Sri Lanka Institute of Information Technology (SLIIT)</p>
+                        <p class="specialization">Specialization: Data Science</p>
+                        <p class="duration">January 2025 - Present</p>
+                        <p class="achievement"><strong>CGPA:</strong> 3.25/4.00</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Higher Diploma in Information Technology</h3>
+                        <p class="institution">Sri Lanka Institute of Information Technology (SLIIT)</p>
+                        <p class="duration">October 2022 - November 2024</p>
+                        <p class="achievement"><strong>CGPA:</strong> 3.30/4.00</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Cambridge Advanced Level</h3>
+                        <p class="institution">Lyceum International School, Sri Lanka</p>
+                        <p class="duration">September 2020 - May 2022</p>
+                        <p class="achievement"><strong>Results:</strong> 1A* 1A 1C</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Cambridge Ordinary Level</h3>
+                        <p class="institution">Lyceum International School, Sri Lanka</p>
+                        <p class="duration">September 2010 - May 2020</p>
+                        <p class="achievement"><strong>Results:</strong> 2A* 2A 2B 1C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">TF-IDF</span>
+                        <span class="skill-tag">Text Preprocessing</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Visualization & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Monday.com</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Advanced Excel</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">OLAP</span>
+                        <span class="skill-tag">ETL</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Data Warehousing</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Full-Stack Development</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Version Control</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">LangGraph</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-user-check"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Information Systems Auditing</span>
+                        <span class="skill-tag">Risk Assessment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Ride-Hailing AI – Data Mining & Prediction System</h3>
+                            <span class="project-type">Machine Learning</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Built a comprehensive machine learning pipeline to mine ride-booking data, predict surge pricing windows, forecast monthly spending patterns, and discover route/segment insights. Delivered actionable insights and subscription recommendations through an interactive Streamlit dashboard.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Machine Learning</span>
+                                <span>Streamlit</span>
+                                <span>Data Mining</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Enabled data-driven pricing strategies and improved user experience through predictive analytics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Hotel Booking Data Warehouse Development</h3>
+                            <span class="project-type">Data Engineering</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Designed and implemented a robust data warehouse for hotel booking data, integrating multiple data sources for comprehensive analytics. Supports OLAP queries, trend analysis, and business intelligence reporting to optimize bookings and maximize revenue.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>SQL</span>
+                                <span>Data Warehousing</span>
+                                <span>OLAP</span>
+                                <span>ETL</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Enhanced decision-making capabilities through centralized data analytics and reporting infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Customer Churn Prediction Model</h3>
+                            <span class="project-type">Predictive Analytics</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed a predictive machine learning model to identify customers at risk of churn. Utilized historical data, advanced feature engineering, and classification algorithms to support proactive customer retention strategies and reduce business losses.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Scikit-Learn</span>
+                                <span>Feature Engineering</span>
+                                <span>Classification</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Enabled proactive retention strategies, reducing customer churn and improving business profitability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Comparative Analysis & Implementation of StyleGAN Architectures</h3>
+                            <span class="project-type">Deep Learning</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Conducted in-depth analysis of StyleGAN research to identify key algorithmic limitations. Engineered a custom Python implementation addressing these gaps, successfully translating complex deep learning theory into functional, production-ready code.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>TensorFlow/PyTorch</span>
+                                <span>Deep Learning</span>
+                                <span>GANs</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Advanced understanding of generative models and contributed to cutting-edge deep learning research.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Tourism AI – Multi-Agent Travel Optimization System</h3>
+                            <span class="project-type">Full-Stack AI</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Engineered a sophisticated multi-agent AI system using the Gemini API and LangGraph to automate personalized travel itinerary generation. Orchestrated specialized agents for real-time logistics optimization within a scalable FastAPI and React full-stack application.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>React</span>
+                                <span>LangGraph</span>
+                                <span>Gemini API</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Delivered intelligent, personalized travel planning solutions with real-time optimization capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Data Analytics & AI Development Intern</h3>
+                            <span class="company">Agrithmics</span>
+                            <span class="duration">November 2025 - Present</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Designed interactive dashboards to visualize key plantation performance metrics, enabling data-driven decision-making</li>
+                        <li>Preprocessed large datasets to support AI model training and optimization, improving model accuracy and efficiency</li>
+                        <li>Automated reporting workflows to streamline data analysis processes, reducing manual effort by 40%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Data Analyst Intern</h3>
+                            <span class="company">International Youth Alliance for Peace (IYAP)</span>
+                            <span class="duration">March 2025 - October 2025</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Utilized Monday.com to track data, create dashboards, and monitor project metrics for strategic planning</li>
+                        <li>Conducted comprehensive data quality checks and analysis to ensure accuracy for informed decision-making</li>
+                        <li>Generated detailed reports to support program evaluation and strategic planning initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>IT Operator</h3>
+                            <span class="company">Crown Global International Pvt Ltd</span>
+                            <span class="duration">July 2024 - February 2025</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Managed computerization of accounts and ensured accurate digital record-keeping systems</li>
+                        <li>Coordinated sticker printing operations and handled social media management to support company branding</li>
+                        <li>Performed regular software maintenance and quality checks to maintain system efficiency and reliability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Freelance Tutor</h3>
+                            <span class="company">Self-Employed</span>
+                            <span class="duration">January 2023 - Present</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Provided personalized tutoring sessions to improve students' understanding and academic performance</li>
+                        <li>Developed customized learning plans tailored to individual student needs and learning styles</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Academic Administrator</h3>
+                            <span class="company">Master Academy</span>
+                            <span class="duration">January 2023 - January 2024</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Oversaw academic operations to ensure smooth coordination of curriculum and faculty activities</li>
+                        <li>Managed student affairs to support effective educational processes and communication</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Telesales Executive</h3>
+                            <span class="company">Icon International BPO Solution</span>
+                            <span class="duration">June 2022 - August 2022</span>
+                        </div>
+                        <ul class="experience-duties">
+                        <li>Engaged with customers to promote products and drive sales effectively</li>
+                        <li>Maintained customer relationships and achieved sales targets through persuasive communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            
+            <!-- AWS Cloud Computing Certifications -->
+            <div class="certification-group">
+                <h3 class="group-title">
+                    <i class="fab fa-aws"></i>
+                    AWS Cloud Computing Certifications
+                </h3>
+                <div class="aws-summary">
+                    <p>AWS Cloud Certifications: Databases in Practice, Amazon EMR, S3, AWS for Developers, Cloud Practitioner, Core Security Concepts, Networking, Auto-Scaling, Highly Available Web Apps, and other AWS services</p>
+                </div>
+            </div>
+
+            <!-- Microsoft Azure Certifications -->
+            <div class="certification-group">
+                <h3 class="group-title">
+                    <i class="fab fa-microsoft"></i>
+                    Microsoft Azure Certifications
+                </h3>
+                <div class="aws-summary azure-summary">
+                    <p>Microsoft Azure Certifications: Azure Data Fundamentals (DP-900), Databricks (Apache Spark), HDInsight, Relational Database Services, Azure Identity & Access, Virtual Machines, Blob Storage, Virtual Networks, Load Balancing & High Availability, and other Azure services.</p>
+                </div>
+            </div>
+
+            <!-- Other Certifications -->
+            <div class="certification-group">
+                <h3 class="group-title">
+                    <i class="fas fa-certificate"></i>
+                    Additional Certifications
+                </h3>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>R for Data Science: Analysis and Visualization</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Python Data Analysis</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Getting Started with Power BI</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Oracle Database 19c</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Introduction to Artificial Intelligence</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Information Systems Auditing Controls and Assurance</h3>
+                        <p>Coursera</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>AI/ML Engineer (Stage 1 & 2)</h3>
+                        <p>The Centre for Open and Distance Education, Faculty of Computing, SLIIT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">I'm always open to discussing new opportunities and exciting projects.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:harishalineeelangovan@gmail.com">harishalineeelangovan@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <a href="tel:+94775073188">+94 77 507 3188</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Harishalinee Elangovan. All rights reserved.</p>
+            <p class="footer-note">Built with passion for data science and innovation</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
