@@ -38,9 +38,5 @@ I built this site from scratch to demonstrate that as a Data Scientist, I also p
 | **Icons** | ![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat&logo=font-awesome&logoColor=white) |
 | **Deployment** | ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat&logo=github&logoColor=white) |
 
----
 
-
-├── script.js        # Logic for navigation and interactive elements
-├── cv.pdf           # Downloadable Resume
 └── images/          # Project assets and profile pictures
