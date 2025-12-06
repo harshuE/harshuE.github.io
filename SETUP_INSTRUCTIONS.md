@@ -72,3 +72,4 @@ Once you've added your profile picture and CV, you can deploy to:
 **Note:** The portfolio is fully functional even without the profile picture and CV files - they will simply not display/download until you add them.
 
 
+

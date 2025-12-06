@@ -1,108 +1,88 @@
-<h1 align="center">Hi 👋, I'm Harishalinee Elangovan</h1>
-<h3 align="center">Data Science Undergraduate | Cloud Certified (AWS & Azure) | AI & ML Enthusiast</h3>
+# Data Science Portfolio - Harishalinee Elangovan
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=harshuE&label=Profile%20Views&color=0e75b6&style=flat" alt="harshuE" />
-</p>
+A professional, modern portfolio website showcasing data science expertise, projects, and achievements. Designed to impress HR professionals at top-tier companies.
 
----
+## Features
 
-## 🚀 About Me
-I’m a **final-year Data Science undergraduate** passionate about transforming data into meaningful insights.  
-I specialize in **Machine Learning, Cloud Computing, Data Engineering, and AI-driven solutions**.
+- **Modern Design**: Clean, professional layout with a gradient color scheme (indigo/purple)
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
+- **Smooth Animations**: Scroll-triggered animations and smooth transitions
+- **Professional Sections**:
+  - About Me: Concise professional summary
+  - Education: Academic achievements and qualifications
+  - Skills: Technical and soft skills organized by category
+  - Projects: 5 featured data science projects with impact descriptions
+  - Experience: Detailed professional experience and internships
+  - Certifications: Online courses and achievements
+  - Contact: Professional contact information and social links
 
-💡 I enjoy building:  
-- Predictive ML models  
-- Cloud-based data pipelines  
-- AI-driven applications  
-- Beautiful dashboards & visualizations  
+## Color Scheme
 
-🔍 Currently exploring **Generative AI, LangGraph, Big Data & Distributed Computing**.
+- **Primary Colors**: Indigo (#6366f1) and Purple (#8b5cf6)
+- **Accent**: Pink (#ec4899)
+- **Background**: White and light gray (#f8fafc)
+- **Typography**: Inter (body) and Playfair Display (headings)
 
----
+## How to Use
 
-## 🧠 Tech Stack & Tools
+1. **Open the Portfolio**: Simply open `index.html` in your web browser
+2. **Customize Content**: Edit `index.html` to update any information
+3. **Modify Styling**: Adjust colors, fonts, or layout in `styles.css`
+4. **Add Interactivity**: Enhance functionality in `script.js`
 
-### **Languages**
-<p>
-  <img src="https://skillicons.dev/icons?i=python,r,java,cpp,js,html,css" />
-</p>
+## Deployment Options
 
-### **Machine Learning & AI**
-<p>
-  <img src="https://skillicons.dev/icons?i=tensorflow,pytorch" />
-  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" />
-  <img src="https://img.shields.io/badge/NLP-4285F4?style=for-the-badge&logo=google&logoColor=white" />
-</p>
+### Option 1: GitHub Pages (Free)
+1. Create a GitHub repository
+2. Upload all files
+3. Go to Settings > Pages
+4. Select main branch and save
+5. Your portfolio will be live at `username.github.io/repository-name`
 
-### **Data Engineering & Databases**
-<p>
-  <img src="https://skillicons.dev/icons?i=mysql,postgres" />
-  <img src="https://img.shields.io/badge/Oracle_DB-F80000?style=for-the-badge&logo=oracle&logoColor=white" />
-</p>
+### Option 2: Netlify (Free)
+1. Go to [Netlify](https://www.netlify.com)
+2. Drag and drop the portfolio folder
+3. Your site will be live instantly
 
-### **Cloud Platforms**
-<p>
-  <img src="https://skillicons.dev/icons?i=aws,azure" />
-</p>
+### Option 3: Vercel (Free)
+1. Go to [Vercel](https://vercel.com)
+2. Import your repository
+3. Deploy with one click
 
-### **Frameworks & Tools**
-<p>
-  <img src="https://skillicons.dev/icons?i=fastapi,react,git" />
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
-  <img src="https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" />
-</p>
+## Customization Tips
 
----
+- **Update LinkedIn/GitHub Links**: Replace placeholder URLs in the contact section with your actual profiles
+- **Add Project Links**: Include GitHub repository links or live demo URLs in project cards
+- **Modify Colors**: Change CSS variables in `:root` section of `styles.css`
+- **Add More Projects**: Duplicate the project-card structure in the projects section
 
-## 🏆 Cloud Certifications
+## Browser Support
 
-### **🌩️ AWS Cloud Certifications**
-**Databases in Practice · Amazon EMR · S3 · AWS for Developers · Cloud Practitioner · Security · Networking · Auto-Scaling · High Availability & more**
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-### **☁️ Azure Cloud Certifications**
-**DP-900 · Databricks (Apache Spark) · HDInsight · Azure Databases · Identity & Access · VMs · Blob Storage · Networks · Load Balancing · HA & more**
+## File Structure
 
----
+```
+Portfolio/
+├── index.html      # Main HTML file
+├── styles.css      # All styling and design
+├── script.js       # Interactive features and animations
+└── README.md       # This file
+```
 
-## 🔥 Featured Projects
+## Notes
 
-### 🚕 **Ride-Hailing AI – Data Mining & Prediction System**
-Machine learning pipeline predicting surge pricing, user spending, and route insights.  
-**Tech:** Python, ML, Streamlit, Data Mining  
-
-### 🏨 **Hotel Booking Data Warehouse**
-Data warehouse + OLAP cubes for trend analysis & BI insights.  
-**Tech:** SQL, ETL, OLAP, DW  
-
-### 📉 **Customer Churn Prediction**
-ML model to identify customers at risk of churn using classification algorithms.  
-**Tech:** Python, Scikit-learn  
-
-### 🤖 **StyleGAN Research & Implementation**
-Deep learning project implementing and analyzing StyleGAN architectures.  
-**Tech:** Python, TensorFlow / PyTorch  
-
-### ✈️ **Tourism AI – Multi-Agent Travel Optimization System**
-AI multi-agent orchestration using LangGraph, Gemini API, FastAPI & React.  
+- All content is based on the provided resume/CV
+- The design is optimized for professional presentation
+- Mobile menu is automatically enabled on smaller screens
+- Smooth scrolling is implemented for better user experience
 
 ---
 
-## 📫 Connect With Me  
-<p>
-  <a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215"><img src="https://skillicons.dev/icons?i=linkedin" /></a>
-  <a href="https://github.com/harshuE"><img src="https://skillicons.dev/icons?i=github" /></a>
-  <a href="mailto:harishalineeelangovan@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-</p>
-
----
+**Built with ❤️ for showcasing data science expertise**
 
 
----
 
-## 🧩 Fun Fact  
-I love solving real-world problems using **data, AI, and cloud technologies**—and turning ideas into fully working applications.
-
----
-
-✨ *Thanks for visiting my profile!*  
