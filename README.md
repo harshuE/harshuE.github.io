@@ -57,15 +57,6 @@ Engineered a multi-agent AI system for automated personalized travel itinerary g
 
 ---
 
-### 📊 GitHub Stats
-
-<p align="left">
-<img src="https://github-readme-stats.vercel.app/api?username=harshuE&show_icons=true&theme=radical" alt="HarshuE Stats" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=harshuE&layout=compact&theme=radical" alt="Top Languages" />
-</p>
-
----
-
 ### 📬 Connect with Me
 
 <p align="left">
