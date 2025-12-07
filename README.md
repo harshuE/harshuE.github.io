@@ -20,7 +20,7 @@ I work with a diverse stack of tools for Data Science, AI, and Full-Stack Develo
 
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,r,java,cpp,sql,postgres,react,fastapi,aws,azure,git,github,vscode,pytorch,tensorflow,sklearn" />
+    <img src="https://skillicons.dev/icons?i=python,r,java,cpp,postgres,react,fastapi,aws,azure,git,github,vscode,pytorch,tensorflow,sklearn" />
   </a>
 </p>
 
