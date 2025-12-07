@@ -36,30 +36,48 @@ I work with a diverse stack of tools for Data Science, AI, and Full-Stack Develo
 ### 🚀 Featured Projects
 
 #### 🚕 [Ride-Hailing AI – Data Mining & Prediction System](https://harshue.github.io/)
-*Machine Learning | Streamlit | Data Mining* Built a pipeline to predict surge pricing windows and forecast monthly spending patterns, delivering actionable insights via an interactive dashboard.
+*Machine Learning | Streamlit | Data Mining*
+Built a pipeline to predict surge pricing windows and forecast monthly spending patterns, delivering actionable insights via an interactive dashboard.
 
 #### 🏨 [Hotel Booking Data Warehouse](https://harshue.github.io/)
-*SQL | ETL | OLAP* Designed a robust data warehouse integrating multiple sources for trend analysis and business intelligence reporting.
+*SQL | ETL | OLAP*
+Designed a robust data warehouse integrating multiple sources for trend analysis and business intelligence reporting.
 
 #### 🔄 [Customer Churn Prediction Model](https://harshue.github.io/)
-*Python | Scikit-Learn | Classification* Developed a predictive model to identify customers at risk of churn, enabling proactive retention strategies.
+*Python | Scikit-Learn | Classification*
+Developed a predictive model to identify customers at risk of churn, enabling proactive retention strategies.
 
 #### 🤖 [Comparative Analysis of StyleGAN](https://harshue.github.io/)
-*Deep Learning | GANs | TensorFlow* Engineered a custom implementation of StyleGAN architectures to address algorithmic limitations in generative models.
+*Deep Learning | GANs | TensorFlow*
+Engineered a custom implementation of StyleGAN architectures to address algorithmic limitations in generative models.
 
 #### 🌍 [Tourism AI – Multi-Agent Travel System](https://harshue.github.io/)
-*LangGraph | Gemini API | FastAPI | React* Engineered a multi-agent AI system for automated personalized travel itinerary generation with real-time optimization.
+*LangGraph | Gemini API | FastAPI | React*
+Engineered a multi-agent AI system for automated personalized travel itinerary generation with real-time optimization.
 
 ---
 
+### 📊 GitHub Stats
 
+<p align="left">
+<img src="https://github-readme-stats.vercel.app/api?username=harshuE&show_icons=true&theme=radical" alt="HarshuE Stats" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=harshuE&layout=compact&theme=radical" alt="Top Languages" />
+</p>
+
+---
 
 ### 📬 Connect with Me
 
 <p align="left">
-<a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="harishalinee" height="30" width="40" /></a>
-<a href="https://harshue.github.io/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/rss.svg" alt="portfolio" height="30" width="40" /></a>
-<a href="mailto:harishalineeelangovan@gmail.com"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/gmail.svg" alt="email" height="30" width="40" /></a>
+  <a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://harshue.github.io/">
+    <img src="https://img.shields.io/badge/Portfolio-100000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
+  </a>
+  <a href="mailto:harishalineeelangovan@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
 </p>
 
 ---
