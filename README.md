@@ -1,88 +1,40 @@
-# Data Science Portfolio - Harishalinee Elangovan
+<div align="center">
+  <img src="https://media.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif" width="100" />
+  <h1 align="center">My Data Science Portfolio Website</h1>
 
-A professional, modern portfolio website showcasing data science expertise, projects, and achievements. Designed to impress HR professionals at top-tier companies.
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=2094F3&center=true&vCenter=true&width=500&lines=HTML5+%2B+CSS3+%2B+JavaScript;Responsive+Design;Custom+Animations;Deployed+on+GitHub+Pages" alt="Typing SVG" />
+  </a>
 
-## Features
+  <br/>
 
-- **Modern Design**: Clean, professional layout with a gradient color scheme (indigo/purple)
-- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Smooth Animations**: Scroll-triggered animations and smooth transitions
-- **Professional Sections**:
-  - About Me: Concise professional summary
-  - Education: Academic achievements and qualifications
-  - Skills: Technical and soft skills organized by category
-  - Projects: 5 featured data science projects with impact descriptions
-  - Experience: Detailed professional experience and internships
-  - Certifications: Online courses and achievements
-  - Contact: Professional contact information and social links
+  <a href="https://harshue.github.io/">
+    <img src="https://img.shields.io/badge/🚀_View_Live_Site-000000?style=for-the-badge&logo=github&logoColor=white" height="40" />
+  </a>
+</div>
 
-## Color Scheme
+<br/>
 
-- **Primary Colors**: Indigo (#6366f1) and Purple (#8b5cf6)
-- **Accent**: Pink (#ec4899)
-- **Background**: White and light gray (#f8fafc)
-- **Typography**: Inter (body) and Playfair Display (headings)
+## 📄 **Project Overview**
+This repository contains the source code for my personal **Data Science Portfolio**. It serves as a central hub to showcase my projects, technical skills, and professional experience. 
 
-## How to Use
-
-1. **Open the Portfolio**: Simply open `index.html` in your web browser
-2. **Customize Content**: Edit `index.html` to update any information
-3. **Modify Styling**: Adjust colors, fonts, or layout in `styles.css`
-4. **Add Interactivity**: Enhance functionality in `script.js`
-
-## Deployment Options
-
-### Option 1: GitHub Pages (Free)
-1. Create a GitHub repository
-2. Upload all files
-3. Go to Settings > Pages
-4. Select main branch and save
-5. Your portfolio will be live at `username.github.io/repository-name`
-
-### Option 2: Netlify (Free)
-1. Go to [Netlify](https://www.netlify.com)
-2. Drag and drop the portfolio folder
-3. Your site will be live instantly
-
-### Option 3: Vercel (Free)
-1. Go to [Vercel](https://vercel.com)
-2. Import your repository
-3. Deploy with one click
-
-## Customization Tips
-
-- **Update LinkedIn/GitHub Links**: Replace placeholder URLs in the contact section with your actual profiles
-- **Add Project Links**: Include GitHub repository links or live demo URLs in project cards
-- **Modify Colors**: Change CSS variables in `:root` section of `styles.css`
-- **Add More Projects**: Duplicate the project-card structure in the projects section
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## File Structure
-
-```
-Portfolio/
-├── index.html      # Main HTML file
-├── styles.css      # All styling and design
-├── script.js       # Interactive features and animations
-└── README.md       # This file
-```
-
-## Notes
-
-- All content is based on the provided resume/CV
-- The design is optimized for professional presentation
-- Mobile menu is automatically enabled on smaller screens
-- Smooth scrolling is implemented for better user experience
+I built this site from scratch to demonstrate that as a Data Scientist, I also possess strong **web development** and **presentation skills**—crucial for deploying models and dashboards.
 
 ---
 
-**Built with ❤️ for showcasing data science expertise**
+## ✨ **Key Features**
+* **🤖 Floating AI Animations:** Custom CSS animations representing my focus on Artificial Intelligence.
+* **📱 Fully Responsive:** Optimized for Desktop, Tablet, and Mobile devices.
+* **🎨 Glassmorphism Design:** Modern UI with translucent cards and glowing gradients.
+* **⚡ Fast Performance:** Pure HTML/CSS/JS with no heavy frameworks.
 
+---
 
+## 🛠️ **Tech Stack Used**
+
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) |
+| **Icons** | ![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat&logo=font-awesome&logoColor=white) |
+| **Deployment** | ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat&logo=github&logoColor=white) |
 
