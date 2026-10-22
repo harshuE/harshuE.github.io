@@ -501,6 +501,61 @@ const SpeechHub = (function () {
     }
 })();
 
+// --- Read more / Read less expand-collapse for long card text ---
+// Applied to project descriptions (line-clamped at 4 lines) and long
+// experience duty lists (clamped by height). The "Listen" buttons read the
+// full underlying text regardless of clamp state, since they use
+// textContent rather than the rendered/visible height.
+(function initExpandCollapse() {
+    const DESCRIPTION_CHAR_THRESHOLD = 200;
+    const DUTY_COUNT_THRESHOLD = 5;
+
+    function makeToggleButton(expandLabel, collapseLabel) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'read-more-btn';
+        btn.innerHTML = `<span>${expandLabel}</span> <i class="fas fa-chevron-down"></i>`;
+        btn.dataset.expandLabel = expandLabel;
+        btn.dataset.collapseLabel = collapseLabel;
+        return btn;
+    }
+
+    function wireToggle(btn, target) {
+        btn.addEventListener('click', () => {
+            const expanded = target.classList.toggle('is-expanded');
+            btn.classList.toggle('is-expanded', expanded);
+            btn.querySelector('span').textContent = expanded ? btn.dataset.collapseLabel : btn.dataset.expandLabel;
+            btn.setAttribute('aria-expanded', String(expanded));
+        });
+    }
+
+    // Project card descriptions
+    document.querySelectorAll('.project-description').forEach(desc => {
+        const text = desc.textContent.replace(/\s+/g, ' ').trim();
+        if (text.length <= DESCRIPTION_CHAR_THRESHOLD) return;
+        desc.classList.add('is-clampable');
+        desc.id = desc.id || `desc-${Math.random().toString(36).slice(2, 9)}`;
+        const btn = makeToggleButton('Read more', 'Read less');
+        btn.setAttribute('aria-controls', desc.id);
+        btn.setAttribute('aria-expanded', 'false');
+        desc.insertAdjacentElement('afterend', btn);
+        wireToggle(btn, desc);
+    });
+
+    // Long experience duty lists (the current role has 7 bullets)
+    document.querySelectorAll('.experience-duties').forEach(list => {
+        const items = list.querySelectorAll('li');
+        if (items.length <= DUTY_COUNT_THRESHOLD) return;
+        list.classList.add('is-clampable');
+        list.id = list.id || `duties-${Math.random().toString(36).slice(2, 9)}`;
+        const btn = makeToggleButton('Show all responsibilities', 'Show less');
+        btn.setAttribute('aria-controls', list.id);
+        btn.setAttribute('aria-expanded', 'false');
+        list.insertAdjacentElement('afterend', btn);
+        wireToggle(btn, list);
+    });
+})();
+
 // --- Light / Dark theme toggle ---
 (function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');

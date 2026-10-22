@@ -25,6 +25,7 @@
     --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
     --gradient-hero: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     --gradient-meet: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0369a1 100%);
+    --avatar-wrapper-bg: radial-gradient(circle at 35% 30%, #eff6ff 0%, #dbeafe 55%, #bfdbfe 100%);
     color-scheme: light;
 }
 
@@ -53,7 +54,9 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.35);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.55), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
     --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    --gradient-hero: linear-gradient(135deg, #0b1120 0%, #1e3a8a 60%, #2563eb 100%);
+    --gradient-hero: linear-gradient(135deg, #04070d 0%, #0b1120 45%, #1e3a8a 100%);
+    --gradient-meet: linear-gradient(135deg, #05080f 0%, #2e1065 50%, #082f49 100%);
+    --avatar-wrapper-bg: radial-gradient(circle at 35% 30%, #1e293b 0%, #141b2d 55%, #0b1120 100%);
     color-scheme: dark;
 }
 
@@ -567,24 +570,30 @@ body {
 }
 
 .hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 1.25rem;
     animation: fadeInUp 1s ease 0.8s both;
     margin-top: 2rem;
     transform-style: preserve-3d;
 }
 
 .btn {
-    padding: 0.875rem 2rem;
+    padding: 0.875rem 1.25rem;
+    min-height: 50px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     border: 2px solid transparent;
     letter-spacing: 0.2px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95rem;
 }
 
 /* ===== Global micro-interaction polish ===== */
@@ -710,7 +719,7 @@ button:focus-visible {
 /* ===== Meet Harishalinee: 3D Avatar + Voice Narration ===== */
 .meet-section {
     background: var(--gradient-meet);
-    padding: 4.5rem 0;
+    padding: 5rem 0;
     border-bottom: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
@@ -773,6 +782,25 @@ button:focus-visible {
     color: #ffffff;
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.6rem;
+    letter-spacing: -0.5px;
+}
+
+.meet-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.meet-text {
+    max-width: 640px;
 }
 
 .meet-sub {
@@ -850,7 +878,7 @@ button:focus-visible {
     height: 280px;
     margin: 0 auto;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #eff6ff 0%, #dbeafe 55%, #bfdbfe 100%);
+    background: var(--avatar-wrapper-bg);
     box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 0 50px rgba(96, 165, 250, 0.35), var(--shadow-xl);
     display: flex;
     align-items: center;
@@ -1641,6 +1669,63 @@ button:focus-visible {
     font-size: 0.9rem;
     display: block;
     overflow: visible;
+}
+
+/* ===== Read more / Read less (clamp) ===== */
+.is-clampable {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+.is-clampable.is-expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.read-more-btn {
+    align-self: flex-start;
+    margin-top: -0.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+.read-more-btn i {
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+.read-more-btn.is-expanded i {
+    transform: rotate(180deg);
+}
+
+.experience-duties.is-clampable {
+    -webkit-line-clamp: unset;
+    max-height: 7.6rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+.experience-duties.is-clampable.is-expanded {
+    max-height: none;
+    -webkit-mask-image: none;
+    mask-image: none;
 }
 
 .project-tech {
@@ -2547,7 +2632,9 @@ button:focus-visible {
     }
 
     .hero-buttons {
-        justify-content: center;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-image-container {
@@ -2623,6 +2710,10 @@ button:focus-visible {
 
     .hero-title {
         font-size: 1.25rem;
+    }
+
+    .hero-buttons {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .section-title {
@@ -2708,7 +2799,7 @@ button:focus-visible {
     }
 
     .hero-buttons {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         width: 100%;
         gap: 1rem;
     }
