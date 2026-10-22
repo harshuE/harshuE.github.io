@@ -13,12 +13,52 @@
     --bg-alt: #f3f4f6;
     --bg-gray: #e5e7eb;
     --border-color: #d1d5db;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.98);
+    --nav-bg-scrolled: rgba(255, 255, 255, 0.99);
+    --footer-bg: #1f2937;
+    --footer-text: #ffffff;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
     --gradient-hero: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+    --gradient-meet: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0369a1 100%);
+    color-scheme: light;
+}
+
+/* ===== Dark Theme ===== */
+:root[data-theme="dark"] {
+    --primary-blue: #60a5fa;
+    --primary-blue-dark: #3b82f6;
+    --primary-blue-light: #93c5fd;
+    --secondary-blue: #60a5fa;
+    --accent-blue: #93c5fd;
+    --text-dark: #e5e7eb;
+    --text-light: #adb5c2;
+    --text-gray: #8b95a5;
+    --bg-white: #0b1120;
+    --bg-light: #141b2d;
+    --bg-alt: #111827;
+    --bg-gray: #1f2937;
+    --border-color: #2b3647;
+    --card-bg: #161f33;
+    --nav-bg: rgba(11, 17, 32, 0.92);
+    --nav-bg-scrolled: rgba(11, 17, 32, 0.97);
+    --footer-bg: #05080f;
+    --footer-text: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.35);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.55), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    --gradient-hero: linear-gradient(135deg, #0b1120 0%, #1e3a8a 60%, #2563eb 100%);
+    color-scheme: dark;
+}
+
+:root[data-theme="dark"] body {
+    background-color: var(--bg-white);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -51,11 +91,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--nav-bg);
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(30, 64, 175, 0.1);
 }
 
@@ -77,7 +117,7 @@ body {
 
 .navbar.scrolled {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
-    background: rgba(255, 255, 255, 0.99);
+    background: var(--nav-bg-scrolled);
 }
 
 .nav-background {
@@ -228,6 +268,30 @@ body {
     transform: translate(-50%, -50%) scale(1);
 }
 
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-left: 1.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-light);
+    color: var(--primary-blue);
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px) rotate(15deg);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -255,6 +319,10 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
+    /* Clears the fixed/sticky navbar (~80px tall) with breathing room so the
+       hero heading is never cropped by or crammed against it, at any width. */
+    padding-top: calc(80px + 2.5rem);
+    padding-bottom: 2.5rem;
 }
 
 .hero::before {
@@ -309,7 +377,7 @@ body {
     height: 100%;
     transform-style: preserve-3d;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 32px 32px 32px 90px;
 }
 
 .hero-image {
@@ -317,9 +385,9 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    border-radius: 24px;
-    border: 8px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 
+    border-radius: 32px 32px 32px 90px;
+    border: 8px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
         0 25px 70px rgba(0, 0, 0, 0.35),
         0 0 50px rgba(59, 130, 246, 0.25),
         inset 0 0 40px rgba(255, 255, 255, 0.15),
@@ -335,7 +403,7 @@ body {
 
 .hero-image:hover {
     transform: translateZ(50px) scale(1.32) rotateY(3deg) rotateX(2deg);
-    box-shadow: 
+    box-shadow:
         0 35px 100px rgba(0, 0, 0, 0.45),
         0 0 80px rgba(59, 130, 246, 0.4),
         inset 0 0 50px rgba(255, 255, 255, 0.25),
@@ -359,7 +427,7 @@ body {
     animation: shine-sweep 3s ease-in-out infinite;
     pointer-events: none;
     z-index: 3;
-    border-radius: 24px;
+    border-radius: 32px 32px 32px 90px;
 }
 
 .image-border {
@@ -369,7 +437,7 @@ body {
     right: -20px;
     bottom: -20px;
     border: 5px solid var(--accent-blue);
-    border-radius: 30px;
+    border-radius: 38px 38px 38px 100px;
     opacity: 0.7;
     animation: pulse-border 3s ease-in-out infinite, rotate-border-slow 20s linear infinite;
     transform: translateZ(-15px);
@@ -387,7 +455,7 @@ body {
     right: -8px;
     bottom: -8px;
     border: 3px solid rgba(255, 255, 255, 0.4);
-    border-radius: 35px;
+    border-radius: 42px 42px 42px 105px;
     animation: pulse-inner 2s ease-in-out infinite;
     pointer-events: none;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
@@ -641,11 +709,35 @@ button:focus-visible {
 
 /* ===== Meet Harishalinee: 3D Avatar + Voice Narration ===== */
 .meet-section {
-    background: var(--bg-white);
-    padding: 4rem 0;
+    background: var(--gradient-meet);
+    padding: 4.5rem 0;
     border-bottom: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.meet-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(96, 165, 250, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.25), transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.meet-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .meet-container {
@@ -653,20 +745,54 @@ button:focus-visible {
     grid-template-columns: 1fr 300px;
     gap: 3rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.meet-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #e0e7ff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
 }
 
 .meet-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: #ffffff;
     margin-bottom: 0.5rem;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
 }
 
 .meet-sub {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.82);
     margin-bottom: 1.5rem;
     font-size: 1rem;
+}
+
+.meet-microcopy {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.meet-microcopy i {
+    color: #93c5fd;
 }
 
 .avatar-play-btn {
@@ -725,11 +851,20 @@ button:focus-visible {
     margin: 0 auto;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #eff6ff 0%, #dbeafe 55%, #bfdbfe 100%);
-    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(30, 64, 175, 0.08);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 0 50px rgba(96, 165, 250, 0.35), var(--shadow-xl);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+.meet-avatar-ring {
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 255, 255, 0.35);
+    animation: rotate-border-slow 30s linear infinite;
+    pointer-events: none;
 }
 
 #avatar-canvas {
@@ -826,7 +961,7 @@ button:focus-visible {
 .research-card {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-left: 4px solid var(--primary-blue);
     border-radius: 12px;
@@ -926,39 +1061,45 @@ button:focus-visible {
     position: relative;
 }
 
+/* Icon-only circular "Listen" button — no text label, so it never causes the
+   card title next to/below it to wrap or overlap. Positioned in a fixed
+   corner of each card via .card-listen-wrapper (absolutely positioned,
+   outside the normal text flow entirely). */
 .listen-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.85rem;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
     background: var(--bg-light);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 50%;
     color: var(--primary-blue);
-    font-size: 0.78rem;
-    font-weight: 600;
+    font-size: 0.95rem;
     font-family: inherit;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    min-height: 32px;
     line-height: 1;
-    z-index: 2;
+    z-index: 3;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .listen-btn i {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 .listen-btn:hover {
     background: var(--gradient-primary);
     color: white;
     border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
 }
 
 .listen-btn:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .listen-btn.is-speaking {
@@ -978,6 +1119,9 @@ button:focus-visible {
     display: none;
 }
 
+/* Fixed top-right corner, absolutely positioned outside the heading's text
+   flow — cards reserve right-side padding via *-title-wrapper / heading
+   padding-right below so the button never overlaps the title text. */
 .card-listen-wrapper {
     position: absolute;
     top: 1rem;
@@ -1004,12 +1148,23 @@ button:focus-visible {
     margin-bottom: 1rem;
 }
 
+.project-title-wrapper h3 {
+    padding-right: 2.75rem;
+}
+
+.experience-header h3 {
+    padding-right: 2.75rem;
+}
+
+.research-body h3 {
+    padding-right: 2.75rem;
+}
+
 @media (max-width: 600px) {
     .card-listen-wrapper {
-        position: static;
-        margin-bottom: 0.75rem;
-        display: flex;
-        justify-content: flex-end;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
     }
 }
 
@@ -1072,7 +1227,7 @@ button:focus-visible {
     align-items: center;
     gap: 0.6rem;
     padding: 0.6rem 1rem;
-    background: white;
+    background: var(--card-bg);
     color: var(--text-dark);
     text-decoration: none;
     border-radius: 50px;
@@ -1265,7 +1420,7 @@ button:focus-visible {
 }
 
 .skill-category {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -1349,7 +1504,7 @@ button:focus-visible {
 }
 
 .project-card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -1562,7 +1717,7 @@ button:focus-visible {
 }
 
 .experience-item {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
@@ -1580,7 +1735,7 @@ button:focus-visible {
 
 .experience-item.current-role {
     border-left: 4px solid #059669;
-    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    background: var(--card-bg);
     box-shadow: 0 4px 20px rgba(5, 150, 105, 0.12), var(--shadow-md);
 }
 
@@ -1784,7 +1939,7 @@ button:focus-visible {
 }
 
 .aws-summary {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -1815,7 +1970,7 @@ button:focus-visible {
 }
 
 .cert-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -1908,7 +2063,7 @@ button:focus-visible {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem;
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: var(--shadow-md);
 }
@@ -1978,8 +2133,8 @@ button:focus-visible {
 
 /* ===== Footer ===== */
 .footer {
-    background: var(--text-dark);
-    color: white;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     padding: 2rem 0;
     text-align: center;
 }
@@ -2420,7 +2575,7 @@ button:focus-visible {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: white;
+        background: var(--nav-bg-scrolled);
         width: 100%;
         text-align: center;
         transition: 0.3s;

@@ -9,6 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Apply saved theme before first paint to avoid a flash of the wrong theme.
+        (function () {
+            try {
+                var saved = localStorage.getItem('portfolio-theme');
+                document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+            } catch (err) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -43,6 +54,9 @@
                 <li><a href="#certifications" class="nav-link"><span>Certifications</span></a></li>
                 <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle light/dark theme">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -124,16 +138,19 @@
     <section class="meet-section" id="meet">
         <div class="container meet-container">
             <div class="meet-text">
+                <span class="meet-eyebrow"><i class="fas fa-circle-nodes"></i> Interactive AI Feature</span>
                 <h2 class="meet-title">Career in 60 Seconds</h2>
                 <p class="meet-sub">Hear (or read) a quick introduction, narrated by your browser.</p>
                 <button id="avatar-play-btn" class="btn btn-primary avatar-play-btn">
                     <i class="fas fa-play"></i> Hear my story
                 </button>
+                <p class="meet-microcopy"><i class="fas fa-wand-magic-sparkles"></i> An AI-voiced, 3D-rendered introduction — built with the same data &amp; AI stack I work in daily.</p>
                 <div id="avatar-captions" class="avatar-captions" aria-live="polite">
                     <span class="avatar-captions-placeholder">Press play to hear my career summary, with captions here.</span>
                 </div>
             </div>
             <div class="meet-avatar-wrapper">
+                <div class="meet-avatar-ring"></div>
                 <canvas id="avatar-canvas" width="280" height="280" aria-label="Stylized 3D avatar of Harishalinee Elangovan"></canvas>
                 <div id="avatar-fallback" class="avatar-fallback" hidden></div>
             </div>
@@ -146,8 +163,8 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <button class="listen-btn" data-listen-target="about-lead" aria-label="Listen to About Me summary">
-                        <i class="fas fa-volume-up"></i> <span>Listen</span>
+                    <button class="listen-btn listen-btn-icon" data-listen-target="about-lead" aria-label="Listen to About Me summary" title="Listen to About Me summary">
+                        <i class="fas fa-volume-up"></i>
                     </button>
                     <p class="lead" id="about-lead">
                         I am an Associate Data Analyst & AI Engineer at Agrithmics and a final-year BSc (Hons) Information Technology (Data Science) undergraduate at SLIIT, working across the full stack: .NET Framework back-end and front-end development, REST APIs, IIS deployment and Docker containers, OCR and document processing, automation testing, data pipelines, interactive dashboards, and machine learning.

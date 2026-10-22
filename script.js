@@ -279,6 +279,79 @@ if (projectsSection2) {
     projectObserver.observe(projectsSection2);
 }
 
+// --- Female voice selection, shared by every speaking feature on the site ---
+// Voice lists load asynchronously in most browsers (empty on first call, populated
+// once 'voiceschanged' fires), so we cache the resolved voice and re-resolve it
+// whenever the list changes, rather than picking once on a possibly-empty list.
+const VoicePicker = (function () {
+    const FEMALE_HINTS = [
+        'female', 'zira', 'samantha', 'victoria', 'susan', 'karen', 'moira',
+        'tessa', 'fiona', 'aria', 'jenny', 'libby', 'olivia', 'emma', 'ava',
+        'hazel', 'catherine', 'sonia', 'joanna', 'salli', 'kimberly', 'amy',
+        'nicole', 'ivy', 'kendra', 'kate', 'serena', 'allison', 'google us english'
+    ];
+    const MALE_HINTS = [
+        'male', 'david', 'mark', 'george', 'daniel', 'fred', 'alex', 'tom',
+        'james', 'guy', 'ryan', 'justin', 'matthew', 'brian'
+    ];
+
+    let cachedVoice = null;
+    let resolved = false;
+
+    function score(voice) {
+        const name = voice.name.toLowerCase();
+        let s = 0;
+        if (FEMALE_HINTS.some(h => name.includes(h))) s += 10;
+        if (MALE_HINTS.some(h => name.includes(h))) s -= 10;
+        if (/^en/i.test(voice.lang)) s += 2;
+        if (voice.default) s += 1;
+        return s;
+    }
+
+    function pickFemaleVoice(voices) {
+        if (!voices || !voices.length) return null;
+        let best = null;
+        let bestScore = -Infinity;
+        voices.forEach(v => {
+            const s = score(v);
+            if (s > bestScore) {
+                bestScore = s;
+                best = v;
+            }
+        });
+        // If nothing scored positively as female-leaning, fall back to the
+        // first English voice, then simply the first available voice.
+        if (bestScore <= 0) {
+            best = voices.find(v => /^en/i.test(v.lang)) || voices[0];
+        }
+        return best;
+    }
+
+    function resolve() {
+        if (!('speechSynthesis' in window)) return null;
+        const voices = window.speechSynthesis.getVoices();
+        if (voices && voices.length) {
+            cachedVoice = pickFemaleVoice(voices);
+            resolved = true;
+        }
+        return cachedVoice;
+    }
+
+    if ('speechSynthesis' in window) {
+        resolve();
+        // Most browsers populate the voice list asynchronously; re-resolve
+        // once it actually arrives so we're not stuck with an early null pick.
+        window.speechSynthesis.addEventListener('voiceschanged', resolve);
+    }
+
+    function getVoice() {
+        if (!resolved) resolve();
+        return cachedVoice;
+    }
+
+    return { getVoice, pickFemaleVoice };
+})();
+
 // --- Shared Web Speech helper (used by hero avatar narration AND card "Listen" buttons) ---
 // Centralizing cancellation here guarantees only one utterance ever plays at a time,
 // no matter which feature (hero avatar vs. a card's Listen button) triggered it.
@@ -322,6 +395,8 @@ const SpeechHub = (function () {
         const utter = new SpeechSynthesisUtterance(text);
         utter.rate = 1;
         utter.pitch = 1;
+        const voice = VoicePicker.getVoice();
+        if (voice) utter.voice = voice;
 
         if (buttonEl) {
             activeButton = buttonEl;
@@ -361,7 +436,8 @@ const SpeechHub = (function () {
         btn.type = 'button';
         btn.className = 'listen-btn';
         btn.setAttribute('aria-label', label);
-        btn.innerHTML = '<i class="fas fa-volume-up"></i><span>Listen</span>';
+        btn.title = label;
+        btn.innerHTML = '<i class="fas fa-volume-up"></i>';
         btn.addEventListener('click', () => SpeechHub.speakText(script, btn));
         wrapper.appendChild(btn);
         return wrapper;
@@ -375,7 +451,7 @@ const SpeechHub = (function () {
         if (!title) return;
         let script = `This project is called ${title}. ${description}`;
         if (impact) script += ` In terms of impact: ${impact}`;
-        const wrapper = makeListenButton(`Listen to a summary of ${title}`, script);
+        const wrapper = makeListenButton('Listen to this project', script);
         card.insertBefore(wrapper, card.firstChild);
     });
 
@@ -390,7 +466,7 @@ const SpeechHub = (function () {
         if (authors) script += ` It was co-authored by ${authors.replace(/^,|,$/g, '')}.`;
         if (venue) script += ` It is being presented at the ${venue}.`;
         if (status) script += ` Current status: ${status}.`;
-        const wrapper = makeListenButton(`Listen to a summary of ${title}`, script);
+        const wrapper = makeListenButton('Listen to this research publication', script);
         card.insertBefore(wrapper, card.firstChild);
     });
 
@@ -411,7 +487,7 @@ const SpeechHub = (function () {
         if (duration) script += `, from ${duration}`;
         script += ', my key responsibilities and achievements included: ';
         script += duties.join('. ') + '.';
-        const wrapper = makeListenButton(`Listen to a summary of the ${role} role at ${company}`, script);
+        const wrapper = makeListenButton('Listen to this experience', script);
         item.insertBefore(wrapper, item.firstChild);
     });
 
@@ -421,6 +497,51 @@ const SpeechHub = (function () {
         const leadText = cleanText(document.getElementById('about-lead'));
         aboutBtn.addEventListener('click', () => {
             SpeechHub.speakText(`Here is a quick overview of who I am. ${leadText}`, aboutBtn);
+        });
+    }
+})();
+
+// --- Light / Dark theme toggle ---
+(function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const STORAGE_KEY = 'portfolio-theme';
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
+        } else {
+            root.setAttribute('data-theme', 'light');
+        }
+        if (toggle) {
+            const icon = toggle.querySelector('i');
+            if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+            toggle.title = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+        }
+    }
+
+    // Default to light per the site's primary design; only honor a previously
+    // saved explicit choice (not prefers-color-scheme), so first-time visitors
+    // always see the light theme first.
+    let saved = null;
+    try {
+        saved = localStorage.getItem(STORAGE_KEY);
+    } catch (err) {
+        /* localStorage unavailable (privacy mode, etc.) — fall back to light */
+    }
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            const next = isDark ? 'light' : 'dark';
+            applyTheme(next);
+            try {
+                localStorage.setItem(STORAGE_KEY, next);
+            } catch (err) {
+                /* ignore persistence failures */
+            }
         });
     }
 })();
@@ -501,23 +622,30 @@ const SpeechHub = (function () {
             const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
 
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-            camera.position.set(0, 0, 6);
+            camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+            // Looking straight down +Z at the face (face mesh features are
+            // built at positive-Z / "front" coordinates below), slightly
+            // above eye level so the avatar reads as looking at the viewer.
+            camera.position.set(0, 0.1, 6.2);
+            camera.lookAt(0, 0, 0);
 
             renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
             renderer.setSize(280, 280, false);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-            const ambient = new THREE.AmbientLight(0xffffff, 0.55);
+            const ambient = new THREE.AmbientLight(0xffffff, 0.65);
             scene.add(ambient);
             const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
-            keyLight.position.set(3, 4, 5);
+            keyLight.position.set(2, 3, 6);
             scene.add(keyLight);
             const fillLight = new THREE.DirectionalLight(0x60a5fa, 0.4);
-            fillLight.position.set(-4, -1, 2);
+            fillLight.position.set(-4, -1, 3);
             scene.add(fillLight);
 
             head = new THREE.Group();
+            // No rotation applied to `head` by default — the resting/idle pose
+            // must show the face straight on. (idle animation below only adds
+            // a tiny subtle sway, it never turns the head away from camera.)
 
             // Shoulders / blazer
             const shoulderGeo = new THREE.CylinderGeometry(1.5, 1.9, 1.4, 32, 1, true, 0, Math.PI);
@@ -528,39 +656,128 @@ const SpeechHub = (function () {
             head.add(shoulders);
 
             // Neck
-            const neckGeo = new THREE.CylinderGeometry(0.45, 0.5, 0.6, 24);
-            const skinMat = new THREE.MeshStandardMaterial({ color: 0xcf9d78, roughness: 0.7 });
+            const neckGeo = new THREE.CylinderGeometry(0.4, 0.46, 0.6, 24);
+            const skinMat = new THREE.MeshStandardMaterial({ color: 0xe0ac81, roughness: 0.65 });
             const neck = new THREE.Mesh(neckGeo, skinMat);
             neck.position.y = -1.15;
             head.add(neck);
 
-            // Head (sphere, slightly squashed)
-            const faceGeo = new THREE.SphereGeometry(1.1, 48, 48);
-            faceGeo.scale(0.92, 1.05, 0.95);
+            // Head (sphere, softened toward a feminine oval face shape)
+            const faceGeo = new THREE.SphereGeometry(1.05, 48, 48);
+            faceGeo.scale(0.86, 1.08, 0.92);
             const face = new THREE.Mesh(faceGeo, skinMat);
             head.add(face);
 
-            // Hair
-            const hairGeo = new THREE.SphereGeometry(1.15, 48, 48, 0, Math.PI * 2, 0, Math.PI * 0.58);
-            const hairMat = new THREE.MeshStandardMaterial({ color: 0x1f1510, roughness: 0.8 });
-            const hair = new THREE.Mesh(hairGeo, hairMat);
-            hair.position.y = 0.15;
-            hair.rotation.x = Math.PI;
-            head.add(hair);
+            // Jaw taper: a slightly narrower lower-half sphere blended in to
+            // avoid a flat/helmet-like silhouette and give a gentler chin.
+            const chinGeo = new THREE.SphereGeometry(0.78, 32, 32, 0, Math.PI * 2, Math.PI * 0.55, Math.PI * 0.45);
+            const chin = new THREE.Mesh(chinGeo, skinMat);
+            chin.position.set(0, -0.55, 0.05);
+            chin.scale.set(0.95, 0.85, 0.92);
+            head.add(chin);
 
-            // Eyes
-            const eyeGeo = new THREE.SphereGeometry(0.1, 16, 16);
-            const eyeMat = new THREE.MeshStandardMaterial({ color: 0x2b2118, roughness: 0.3 });
-            const eyeL = new THREE.Mesh(eyeGeo, eyeMat);
-            eyeL.position.set(-0.38, 0.12, 0.92);
-            const eyeR = eyeL.clone();
-            eyeR.position.x = 0.38;
+            // --- Hair: shoulder-length feminine silhouette ---
+            // Back/crown mass (covers the top and back of the head).
+            const hairMat = new THREE.MeshStandardMaterial({ color: 0x2a1a12, roughness: 0.75 });
+            const crownGeo = new THREE.SphereGeometry(1.14, 48, 48, 0, Math.PI * 2, 0, Math.PI * 0.62);
+            const crown = new THREE.Mesh(crownGeo, hairMat);
+            crown.position.y = 0.2;
+            crown.rotation.x = Math.PI;
+            head.add(crown);
+
+            // Side-parted front fringe, swept to one side above the brow.
+            const fringeGeo = new THREE.SphereGeometry(1.08, 32, 32, Math.PI * 0.08, Math.PI * 0.85, 0, Math.PI * 0.4);
+            const fringe = new THREE.Mesh(fringeGeo, hairMat);
+            fringe.position.set(0.05, 0.55, 0.15);
+            fringe.rotation.x = Math.PI * 0.08;
+            head.add(fringe);
+
+            // Two wider, flattened lobes flowing past the jawline on either
+            // side of the face — reads as long hair rather than a helmet.
+            const hairSideGeo = new THREE.SphereGeometry(0.62, 24, 24);
+            const hairSideMat = hairMat;
+            const hairLeft = new THREE.Mesh(hairSideGeo, hairSideMat);
+            hairLeft.scale.set(0.55, 1.5, 0.75);
+            hairLeft.position.set(-1.0, -0.65, -0.05);
+            const hairRight = hairLeft.clone();
+            hairRight.position.x = 1.0;
+            head.add(hairLeft, hairRight);
+
+            // Back drape so hair clearly extends past the shoulders.
+            const hairBackGeo = new THREE.CylinderGeometry(0.95, 0.7, 1.7, 32, 1, true);
+            const hairBack = new THREE.Mesh(hairBackGeo, hairMat);
+            hairBack.position.set(0, -0.6, -0.55);
+            head.add(hairBack);
+
+            // --- Eyebrows ---
+            const browMat = new THREE.MeshStandardMaterial({ color: 0x2a1a12, roughness: 0.8 });
+            const browGeo = new THREE.BoxGeometry(0.34, 0.06, 0.05);
+            const browL = new THREE.Mesh(browGeo, browMat);
+            browL.position.set(-0.36, 0.42, 0.92);
+            browL.rotation.z = 0.08;
+            const browR = browL.clone();
+            browR.position.x = 0.36;
+            browR.rotation.z = -0.08;
+            head.add(browL, browR);
+
+            // --- Eyes: sclera (white) + iris (color) + pupil (dark), built as
+            // small flattened-sphere groups on the FRONT (+Z) of the face so
+            // they are always visible, facing the camera. ---
+            function buildEye(xSign) {
+                const eyeGroup = new THREE.Group();
+
+                const scleraGeo = new THREE.SphereGeometry(0.155, 20, 20);
+                const scleraMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.3 });
+                const sclera = new THREE.Mesh(scleraGeo, scleraMat);
+                sclera.scale.set(1, 0.72, 0.6);
+                eyeGroup.add(sclera);
+
+                const irisGeo = new THREE.SphereGeometry(0.075, 16, 16);
+                const irisMat = new THREE.MeshStandardMaterial({ color: 0x3b2516, roughness: 0.35 });
+                const iris = new THREE.Mesh(irisGeo, irisMat);
+                iris.position.z = 0.09;
+                eyeGroup.add(iris);
+
+                const pupilGeo = new THREE.SphereGeometry(0.034, 12, 12);
+                const pupilMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, roughness: 0.2 });
+                const pupil = new THREE.Mesh(pupilGeo, pupilMat);
+                pupil.position.z = 0.13;
+                eyeGroup.add(pupil);
+
+                // Upper lash line — a thin dark arc so the open eye reads
+                // clearly instead of looking like a blank white dot.
+                const lashGeo = new THREE.TorusGeometry(0.16, 0.014, 8, 16, Math.PI);
+                const lashMat = new THREE.MeshStandardMaterial({ color: 0x1a1210, roughness: 0.6 });
+                const lash = new THREE.Mesh(lashGeo, lashMat);
+                lash.rotation.z = Math.PI;
+                lash.position.z = 0.02;
+                eyeGroup.add(lash);
+
+                eyeGroup.position.set(0.37 * xSign, 0.14, 0.93);
+                return eyeGroup;
+            }
+            const eyeL = buildEye(-1);
+            const eyeR = buildEye(1);
             head.add(eyeL, eyeR);
 
-            // Jaw / mouth (animated for lip-sync)
-            const jawGeo = new THREE.BoxGeometry(0.5, 0.16, 0.12);
-            const jawMat = new THREE.MeshStandardMaterial({ color: 0x8a3b3b, roughness: 0.5 });
-            jaw = new THREE.Mesh(jawGeo, jawMat);
+            // Simple nose (small wedge) on the front of the face.
+            const noseGeo = new THREE.ConeGeometry(0.09, 0.22, 8);
+            const noseMat = new THREE.MeshStandardMaterial({ color: 0xdba273, roughness: 0.7 });
+            const nose = new THREE.Mesh(noseGeo, noseMat);
+            nose.position.set(0, -0.08, 1.0);
+            nose.rotation.x = Math.PI * 0.55;
+            head.add(nose);
+
+            // Upper lip (static) + jaw/lower-lip (animated for lip-sync),
+            // both on the front of the face so the mouth is always visible.
+            const lipMat = new THREE.MeshStandardMaterial({ color: 0xb5574f, roughness: 0.45 });
+            const upperLipGeo = new THREE.BoxGeometry(0.42, 0.07, 0.1);
+            const upperLip = new THREE.Mesh(upperLipGeo, lipMat);
+            upperLip.position.set(0, -0.33, 0.97);
+            head.add(upperLip);
+
+            const jawGeo = new THREE.BoxGeometry(0.4, 0.14, 0.12);
+            jaw = new THREE.Mesh(jawGeo, lipMat);
             jaw.position.set(0, -0.42, 0.95);
             head.add(jaw);
 
@@ -636,6 +853,8 @@ const SpeechHub = (function () {
         const utter = new SpeechSynthesisUtterance(NARRATION_TEXT);
         utter.rate = 1;
         utter.pitch = 1;
+        const voice = VoicePicker.getVoice();
+        if (voice) utter.voice = voice;
 
         playBtn.disabled = true;
         playBtn.innerHTML = '<i class="fas fa-pause"></i> Narrating...';
