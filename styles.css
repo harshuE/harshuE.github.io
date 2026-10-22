@@ -783,7 +783,8 @@ button:focus-visible {
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
     position: relative;
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding-bottom: 0.6rem;
     letter-spacing: -0.5px;
 }
@@ -831,6 +832,7 @@ button:focus-visible {
     cursor: pointer;
     font-family: inherit;
     font-size: 0.95rem;
+    margin-top: 1rem;
 }
 
 .avatar-play-btn:hover {
