@@ -38,6 +38,7 @@
                 <li><a href="#education" class="nav-link"><span>Education</span></a></li>
                 <li><a href="#skills" class="nav-link"><span>Skills</span></a></li>
                 <li><a href="#projects" class="nav-link"><span>Projects</span></a></li>
+                <li><a href="#research" class="nav-link"><span>Research</span></a></li>
                 <li><a href="#experience" class="nav-link"><span>Experience</span></a></li>
                 <li><a href="#certifications" class="nav-link"><span>Certifications</span></a></li>
                 <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
@@ -85,21 +86,27 @@
             </div>
             <div class="hero-content">
                 <h1 class="hero-name">Harishalinee Elangovan</h1>
-                <p class="hero-title">Data Science Professional</p>
-                <p class="hero-subtitle">Data Analyst & AI Engineer | Machine Learning | Analytics</p>
-                <p class="hero-description">Associate Data Analyst & AI Engineer at Agrithmics — specializing in data pipelines, interactive dashboards, predictive modeling, and cloud-based AI solutions that drive business intelligence and strategic decision-making.</p>
+                <p class="hero-title">Software, Data & AI Professional</p>
+                <p class="hero-subtitle">.NET &amp; REST APIs | Data Analytics &amp; AI/ML | Automation Testing</p>
+                <p class="hero-description">Associate Data Analyst & AI Engineer at Agrithmics, building full-stack .NET applications, REST APIs, OCR pipelines and automated test suites alongside data pipelines, interactive dashboards and machine learning models — including an edge-based fall-risk detection system (97.12% accuracy) with a paper accepted for IEEE ICSCDS-2026.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Get In Touch
                     </a>
-                    <a href="cv.pdf" download class="btn btn-cv">
+                    <a href="Harishalinee_Elangovan_CV.pdf" download class="btn btn-cv">
                         <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="Harishalinee_Elangovan_Cover_Letter.pdf" download class="btn btn-cv">
+                        <i class="fas fa-file-alt"></i> Cover Letter
                     </a>
                     <a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215" target="_blank" class="btn btn-social linkedin-btn">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
                     <a href="https://github.com/harshuE" target="_blank" class="btn btn-social github-btn">
                         <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://caresense-portfolio.vercel.app" target="_blank" rel="noopener" class="btn btn-social research-btn">
+                        <i class="fas fa-flask"></i> Research Portfolio
                     </a>
                 </div>
             </div>
@@ -113,20 +120,43 @@
         </div>
     </section>
 
+    <!-- Meet Harishalinee: 3D Avatar + Voice Narration -->
+    <section class="meet-section" id="meet">
+        <div class="container meet-container">
+            <div class="meet-text">
+                <h2 class="meet-title">Career in 60 Seconds</h2>
+                <p class="meet-sub">Hear (or read) a quick introduction, narrated by your browser.</p>
+                <button id="avatar-play-btn" class="btn btn-primary avatar-play-btn">
+                    <i class="fas fa-play"></i> Hear my story
+                </button>
+                <div id="avatar-captions" class="avatar-captions" aria-live="polite">
+                    <span class="avatar-captions-placeholder">Press play to hear my career summary, with captions here.</span>
+                </div>
+            </div>
+            <div class="meet-avatar-wrapper">
+                <canvas id="avatar-canvas" width="280" height="280" aria-label="Stylized 3D avatar of Harishalinee Elangovan"></canvas>
+                <div id="avatar-fallback" class="avatar-fallback" hidden></div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Me Section -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="lead">
-                        I am a final-year Data Science undergraduate and a practicing Associate Data Analyst & AI Engineer at Agrithmics, with a passion for transforming complex data into actionable insights that drive strategic decision-making. I specialize in building end-to-end data solutions — from pipeline optimization and dashboard development to machine learning model deployment.
+                    <button class="listen-btn" data-listen-target="about-lead" aria-label="Listen to About Me summary">
+                        <i class="fas fa-volume-up"></i> <span>Listen</span>
+                    </button>
+                    <p class="lead" id="about-lead">
+                        I am an Associate Data Analyst & AI Engineer at Agrithmics and a final-year BSc (Hons) Information Technology (Data Science) undergraduate at SLIIT, working across the full stack: .NET Framework back-end and front-end development, REST APIs, IIS deployment and Docker containers, OCR and document processing, automation testing, data pipelines, interactive dashboards, and machine learning.
                     </p>
                     <p>
-                        My technical expertise encompasses Python, SQL, and R, along with advanced machine learning frameworks including Scikit-Learn, TensorFlow, and PyTorch. I am proficient in cloud computing platforms (AWS, Azure) and data visualization tools (Power BI), enabling me to deliver comprehensive analytics solutions. I excel in collaborative environments, leveraging my analytical mindset and technical capabilities to address complex business challenges and drive organizational success.
+                        My technical toolkit spans Python, SQL, .NET, Java and C/C++, with machine learning and deep learning frameworks including Scikit-Learn, XGBoost, TensorFlow and PyTorch, computer vision (MediaPipe), NLP, and generative AI (LangChain/LangGraph, Gemini API). I built an edge-based skeletal-movement fall-risk detection model that reached 97.12% accuracy on unseen subjects, co-authoring a paper accepted for presentation at IEEE ICSCDS-2026. I'm also comfortable in Power BI, SSRS and advanced Excel for business intelligence, and AWS/Azure for cloud deployment.
                     </p>
                     <p>
-                        Currently pursuing my Bachelor's degree at SLIIT with a 3.25/4.00 CGPA, I bring both academic depth and real-world industry experience. My objective is to continue advancing as a data and AI professional while delivering measurable impact through data-driven solutions that optimize business performance and inform strategic initiatives.
+                        Currently pursuing my Bachelor's degree at SLIIT with a 3.25/4.00 CGPA, I bring both academic depth and real-world industry experience across software engineering, data analytics and AI/ML. I'm open to Software Engineer, Data Analyst, AI/ML Engineer and QA Automation roles, and I'm driven by delivering measurable impact through reliable, well-tested, data-driven systems.
                     </p>
                 </div>
             </div>
@@ -185,73 +215,84 @@
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <h3><i class="fas fa-code"></i> Programming & Frameworks</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">.NET Framework</span>
+                        <span class="skill-tag">REST APIs</span>
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">C/C++</span>
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">React</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
                         <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">XGBoost</span>
                         <span class="skill-tag">TensorFlow</span>
                         <span class="skill-tag">PyTorch</span>
                         <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">TF-IDF</span>
-                        <span class="skill-tag">Text Preprocessing</span>
-                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Computer Vision (MediaPipe)</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">LangGraph</span>
+                        <span class="skill-tag">Gemini API</span>
+                        <span class="skill-tag">Generative AI (StyleGAN)</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-chart-bar"></i> Data Visualization & BI</h3>
+                    <h3><i class="fas fa-chart-bar"></i> Data Analysis & BI</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Monday.com</span>
+                        <span class="skill-tag">SSRS</span>
+                        <span class="skill-tag">Advanced Excel</span>
                         <span class="skill-tag">Matplotlib</span>
                         <span class="skill-tag">Seaborn</span>
-                        <span class="skill-tag">Advanced Excel</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Data Management</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">OLAP</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Monday.com</span>
                         <span class="skill-tag">ETL</span>
-                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">SSIS</span>
                         <span class="skill-tag">Data Warehousing</span>
+                        <span class="skill-tag">OLAP (SSAS)</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">SQL Server</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <h3><i class="fas fa-cloud"></i> Cloud, Testing & Deployment</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">AWS</span>
                         <span class="skill-tag">Microsoft Azure</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Full-Stack Development</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                    <div class="skill-tags">
+                        <span class="skill-tag">IIS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Application Deployment</span>
+                        <span class="skill-tag">Automation Testing</span>
                         <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Version Control</span>
-                        <span class="skill-tag">Streamlit</span>
-                        <span class="skill-tag">LangGraph</span>
+                        <span class="skill-tag">GitHub</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-user-check"></i> Soft Skills</h3>
+                    <h3><i class="fas fa-layer-group"></i> Core Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Business Intelligence</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">OCR & Document Processing</span>
+                        <span class="skill-tag">Containerization</span>
+                        <span class="skill-tag">Cloud Computing</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-user-check"></i> Professional</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Problem-Solving</span>
                         <span class="skill-tag">Stakeholder Management</span>
@@ -270,6 +311,37 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                <div class="project-card featured-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div class="project-title-wrapper">
+                            <h3>Edge-Enabled Skeletal Movement Analysis for Real-Time Fall Risk Detection</h3>
+                            <span class="project-type">Research &amp; Computer Vision · 2026</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Final-year research project (CareSense group, R26-DS-010): built a privacy-preserving fall-risk detector that runs on an ordinary RGB webcam and a CPU, analysing skeleton data only. Fused an ST-GCN model with 18 biomechanical features in a late-fusion architecture, trained on NTU RGB+D and UR Fall Detection (578 labelled clips). Achieved 97.12% accuracy, 92.31% sensitivity, a 1.28% false-alarm rate and ROC-AUC 0.9836 on unseen subjects, with 4.5ms CPU inference per window. Measured domain shift (cross-dataset ROC-AUC 0.410) and recovered to macro-F1 0.8851 on webcam data using just 35 fine-tuning clips.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-tech-section">
+                            <strong><i class="fas fa-code"></i> Technologies:</strong>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>PyTorch</span>
+                                <span>MediaPipe</span>
+                                <span>ST-GCN</span>
+                                <span>Computer Vision</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong><i class="fas fa-chart-line"></i> Impact:</strong>
+                            <p>Real-time, privacy-preserving fall detection deployable on commodity hardware for elder/patient care facilities. See caresense-portfolio.vercel.app</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
@@ -281,7 +353,7 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Built a comprehensive machine learning pipeline to mine ride-booking data, predict surge pricing windows, forecast monthly spending patterns, and discover route/segment insights. Delivered actionable insights and subscription recommendations through an interactive Streamlit dashboard.
+                        Mined roughly 148,000 ride bookings using Apriori and FP-Growth route mining and K-Means/DBSCAN rider segmentation to predict high-demand windows, forecast monthly spend, and recommend subscription plans. Delivered these insights through an interactive Streamlit dashboard.
                     </p>
                     <div class="project-details">
                         <div class="project-tech-section">
@@ -311,16 +383,18 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Designed and implemented a robust data warehouse for hotel booking data, integrating multiple data sources for comprehensive analytics. Supports OLAP queries, trend analysis, and business intelligence reporting to optimize bookings and maximize revenue.
+                        Designed a star schema with a central booking fact table and six dimensions, built SSIS ETL packages to load and transform booking data, and modeled an SSAS OLAP cube on top. Delivered Power BI and SSRS dashboards reporting booking trends, revenue, and cancellation rates to support business intelligence reporting.
                     </p>
                     <div class="project-details">
                         <div class="project-tech-section">
                             <strong><i class="fas fa-code"></i> Technologies:</strong>
                             <div class="project-tech">
                                 <span>SQL</span>
+                                <span>SSIS</span>
+                                <span>SSAS</span>
+                                <span>SSRS</span>
                                 <span>Data Warehousing</span>
                                 <span>OLAP</span>
-                                <span>ETL</span>
                             </div>
                         </div>
                         <div class="project-impact">
@@ -341,7 +415,7 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Developed a predictive machine learning model to identify customers at risk of churn. Utilized historical data, advanced feature engineering, and classification algorithms to support proactive customer retention strategies and reduce business losses.
+                        Trained and compared Random Forest and XGBoost classifiers on 7,043 customers using accuracy, precision, recall and F1-score, with Random Forest performing best. Shipped the model as a full-stack app with a Flask prediction API and a React/Vite front end to support proactive customer retention strategies.
                     </p>
                     <div class="project-details">
                         <div class="project-tech-section">
@@ -349,8 +423,10 @@
                             <div class="project-tech">
                                 <span>Python</span>
                                 <span>Scikit-Learn</span>
-                                <span>Feature Engineering</span>
-                                <span>Classification</span>
+                                <span>XGBoost</span>
+                                <span>Flask</span>
+                                <span>React</span>
+                                <span>Vite</span>
                             </div>
                         </div>
                         <div class="project-impact">
@@ -424,6 +500,28 @@
         </div>
     </section>
 
+    <!-- Research Publication Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Research Publication</h2>
+            <div class="research-card">
+                <div class="research-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="research-body">
+                    <h3>Multimodal AI Framework for Intelligent Caregiver Support and Patient Safety in Care Facilities</h3>
+                    <p class="research-authors">Dayana Priyadharshani Kumar, <strong>Harishalinee Elangovan</strong>, Vidursha Prabagaran, Kaushalya Nagenthiraraja, Samadhi Rathnayake, Samantha Thelijjagoda</p>
+                    <p class="research-venue">4th International Conference on Sustainable Computing and Data Communication Systems (ICSCDS-2026) — IEEE conference proceedings, 15–17 December 2026, India</p>
+                    <p class="research-status"><span class="research-badge">Accepted</span> for presentation and publication (acceptance with major revision) · Paper ID ICSCDS-0291</p>
+                    <p class="research-link"><i class="fas fa-link"></i> CareSense research portfolio — caresense-portfolio.vercel.app</p>
+                    <a href="https://caresense-portfolio.vercel.app" target="_blank" rel="noopener" class="btn btn-primary research-portfolio-cta">
+                        <i class="fas fa-flask"></i> View Research Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
@@ -440,9 +538,13 @@
                             <span class="duration">February 2026 - Present</span>
                         </div>
                         <ul class="experience-duties">
-                            <li>Led development of interactive dashboards for plantation performance tracking, enabling data-driven decision-making at scale</li>
-                            <li>Optimized data pipelines for AI model training, improving processing efficiency and model accuracy</li>
-                            <li>Implemented automated reporting workflows to streamline data analysis, accelerating decision-making across teams</li>
+                            <li>Develop back-end and front-end features in .NET Framework and build REST APIs</li>
+                            <li>Deploy applications on IIS, work with Docker containers, and release data/AI solutions to live environments</li>
+                            <li>Build OCR-based text extraction and document-handling features</li>
+                            <li>Carry out automation testing to verify that dashboards, data pipelines and reporting workflows work correctly</li>
+                            <li>Led development of multiple interactive dashboards for plantation performance tracking across 6–7 projects</li>
+                            <li>Optimized data pipelines that feed AI model training, improving processing efficiency</li>
+                            <li>Built automated reporting workflows that speed up decision-making</li>
                         </ul>
                     </div>
                 </div>
@@ -669,6 +771,30 @@
             <p class="footer-note">Built with passion for data science and innovation</p>
         </div>
     </footer>
+
+    <!-- Quick Contact Floating Widget -->
+    <div class="quick-contact" id="quick-contact">
+        <div class="quick-contact-menu" id="quick-contact-menu">
+            <a href="tel:+94775073188" class="quick-contact-item" aria-label="Call Harishalinee">
+                <i class="fas fa-phone"></i><span>+94 77 507 3188</span>
+            </a>
+            <a href="mailto:harishalineeelangovan@gmail.com" class="quick-contact-item" aria-label="Email Harishalinee">
+                <i class="fas fa-envelope"></i><span>Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/harishalinee-elangovan-a45677215" target="_blank" rel="noopener" class="quick-contact-item" aria-label="LinkedIn profile">
+                <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/harshuE" target="_blank" rel="noopener" class="quick-contact-item" aria-label="GitHub profile">
+                <i class="fab fa-github"></i><span>GitHub</span>
+            </a>
+            <a href="https://caresense-portfolio.vercel.app" target="_blank" rel="noopener" class="quick-contact-item" aria-label="CareSense research portfolio">
+                <i class="fas fa-flask"></i><span>Research</span>
+            </a>
+        </div>
+        <button class="quick-contact-toggle" id="quick-contact-toggle" aria-label="Open quick contact menu" aria-expanded="false">
+            <i class="fas fa-address-card"></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>
